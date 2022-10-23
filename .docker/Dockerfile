@@ -22,8 +22,10 @@ RUN apt install -y nodejs
 
 # Install mailutils to make sendmail work
 RUN apt install -y \
-    apt-utils \
-    mailutils
+  apt-utils \
+  mailutils
+
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');" && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer && rm -rf /tmp/composer-setup.php
 CMD ["/tmp/docker_run_git.sh"]
