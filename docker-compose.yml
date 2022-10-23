@@ -5,27 +5,23 @@ volumes:
   vendor:
   var:
 
-
 services:
   mysql:
     image: mysql:5
     ports:
-      - "3306:3306"
+      - "3306"
     volumes:
       - db-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: prestashop
       MYSQL_DATABASE: prestashop
     restart: always
-
   prestashop-git:
     build:
       dockerfile: .docker/Dockerfile
       context: .
       args:
         - VERSION=${VERSION:-7.4}
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
     environment:
       DISABLE_MAKE: ${DISABLE_MAKE:-0}
       PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-1}
@@ -46,4 +42,3 @@ services:
       - "8001:80"
     volumes:
       - ./:/var/www/html/:delegated
-      - "./.docker/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
