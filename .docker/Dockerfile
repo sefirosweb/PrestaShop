@@ -17,4 +17,6 @@ RUN chown -R www-data:www-data /var/www/html/var
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt install -y nodejs
 
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 CMD ["/tmp/docker_run_git.sh"]
