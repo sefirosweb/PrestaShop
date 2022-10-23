@@ -1,20 +1,20 @@
-mysql:
-  image: mysql:5
-  ports:
-    - "3306:3306"
-  restart: never
+services:
+  mysql:
+    ports:
+      - "3306:3306"
+    restart: "no"
 
-prestashop-git:
-  extra_hosts:
-    - 'host.docker.internal:host-gateway'
-  environment:
-    DISABLE_MAKE: ${DISABLE_MAKE:-1}
-    PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-0}
-    PS_COUNTRY: ${PS_COUNTRY:-es}
-    PS_LANGUAGE: ${PS_LANGUAGE:-es}
-    PS_DEV_MODE: ${PS_DEV_MODE:-1}
-    ADMIN_MAIL: ${ADMIN_MAIL:-admin@prestashop.com}
-    ADMIN_PASSWD: ${ADMIN_PASSWD:-prestashop}
+  prestashop-git:
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      DISABLE_MAKE: ${DISABLE_MAKE:-1}
+      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-0}
+      PS_COUNTRY: ${PS_COUNTRY:-es}
+      PS_LANGUAGE: ${PS_LANGUAGE:-es}
+      PS_DEV_MODE: ${PS_DEV_MODE:-1}
+      ADMIN_MAIL: ${ADMIN_MAIL:-admin@prestashop.com}
+      ADMIN_PASSWD: ${ADMIN_PASSWD:-prestashop}
 
-  volumes:
-    - "./.docker/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+    volumes:
+      - "./.docker/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
