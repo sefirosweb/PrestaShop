@@ -1,3 +1,3 @@
-[submodule "modules/amazonbs3bucket"]
-	path = modules/amazonbs3bucket
+[submodule "modules/amazons3bucket"]
+	path = modules/amazons3bucket
 	url = git@github.com:sefirosweb/Amazon-S3-bucket.git
