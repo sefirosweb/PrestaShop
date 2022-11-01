@@ -1,5 +1,11 @@
 # Instalar dependencias:
 
+## Instalar composer version antigua:
+
+```
+sudo composer self-update 2.2.9
+```
+
 ```
 composer install --ignore-platform-reqs
 ```
