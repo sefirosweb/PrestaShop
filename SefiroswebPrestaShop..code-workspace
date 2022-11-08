@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Prestashop"
+		},
+		{
+			"path": "modules/amazons3bucket",
+			"name": "Amazon S3 Bucket"
+		}
+	],
+	"settings": {},
+}
